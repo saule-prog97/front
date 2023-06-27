@@ -6,12 +6,19 @@ function App() {
   const [projName, setProjName] = useState("");
   const [text, setText] = useState("");
   const [money, setMoney] = useState("");
+  const [nameCoin, setnameCoin] = useState("");
+  const [allocation, setAllocation] = useState("");
 
   const sendData = async () => {
     const requestBody = {
       nameProject: projName,
-      textAboutProject: text,
-      collectMoney: +money
+      coinPrice: money,
+      nameCoin: nameCoin,
+      allocation: allocation,
+      aboutProject: {
+        textOne: text,
+        textTwo: text
+      }
     };
 
     try {
@@ -68,6 +75,24 @@ function App() {
             id="money"
             value={money}
             onChange={(e) => setMoney(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="money">name coin</label>
+          <input
+            type="text"
+            id="money"
+            value={nameCoin}
+            onChange={(e) => setnameCoin(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="money">allocation</label>
+          <input
+            type="text"
+            id="money"
+            value={allocation}
+            onChange={(e) => setAllocation(e.target.value)}
           />
         </div>
         <button type="submit">send</button>
